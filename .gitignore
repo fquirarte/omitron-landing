@@ -1,0 +1,6 @@
+# fonts originales (TTF) — los woff2 sí se comitean
+fonts/*.ttf
+
+# OS
+.DS_Store
+Thumbs.db
