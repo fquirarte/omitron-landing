@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<!--
+  MODELO B — LA NUBE SOBERANA
+  Target:   Dueños de empresa o directivos que valoran control, privacidad, independencia
+  Precio:   Tarifa plana por organización (no por usuario)
+            Solo $999/mes · Equipo $2,499/mes · Empresa $5,999/mes
+  Ingreso:  20 clientes Equipo = $50k MXN/mes
+  Pitch:    "Tu empresa merece tener su propia infraestructura digital"
+  Tono:     Editorial, filosófico, emotivo — menos features, más por qué
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omitron — La Nube que Pertenece a tu Empresa</title>
+  <meta name="description" content="Infraestructura digital propia para tu empresa. No rentes lo que puede ser tuyo. Datos en México, precio fijo, sin intermediarios." />
+  <link rel="icon" type="image/png" href="assets/img/Isotipo.Azul.png" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ── V2 OVERRIDES — editorial, dramatic ── */
+    #hero {
+      min-height: 100vh;
+      justify-content: flex-end;
+      padding-bottom: 8rem;
+    }
+    #hero .hero-lockup { margin-bottom: auto; padding-top: 8rem; }
+    .hero-headline {
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      line-height: 1.05;
+      max-width: 14ch;
+    }
+    .hero-headline em {
+      font-style: normal;
+      color: var(--blue-hi);
+      display: block;
+    }
+    .hero-sub { max-width: 44ch; font-size: 1rem; }
+
+    /* manifesto section */
+    #manifesto {
+      padding: 7rem 0;
+      background: var(--cream);
+      color: var(--dark);
+    }
+    .manifesto-body {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .manifesto-body p {
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+      color: rgba(18,16,17,0.8);
+    }
+    .manifesto-body p strong {
+      color: var(--dark);
+    }
+    .manifesto-body .pull-quote {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-family: var(--ff-title);
+      color: var(--dark);
+      border-left: 3px solid var(--blue);
+      padding-left: 1.5rem;
+      margin: 3rem 0;
+      line-height: 1.3;
+    }
+
+    /* org pricing */
+    #pricing { padding: 6rem 0; background: var(--dark-2); }
+    .pricing-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .pricing-row { grid-template-columns: 1fr; }
+    }
+    .ptier {
+      background: var(--dark-3);
+      padding: 2.5rem 2rem;
+    }
+    .ptier.featured { background: var(--dark-2); border-top: 2px solid var(--blue); }
+    .ptier-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue-hi);
+      margin-bottom: 1.25rem;
+    }
+    .ptier-price {
+      font-family: var(--ff-title);
+      font-size: 2.4rem;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+      line-height: 1;
+    }
+    .ptier-price small {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-family: var(--ff-body);
+    }
+    .ptier-for {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .ptier ul {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .ptier ul li {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+      padding: 0.35rem 0;
+    }
+    .ptier ul li::before { content: '→ '; color: var(--blue-hi); }
+    .ptier a {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-family: var(--ff-body);
+      font-size: 0.82rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+    .ptier a:hover { border-color: var(--blue); color: white; }
+    .ptier.featured a {
+      background: var(--blue); border-color: var(--blue); color: white;
+    }
+    .ptier.featured a:hover { background: #0256c0; }
+
+    /* conviction section */
+    #conviction {
+      padding: 6rem 0;
+    }
+    .conviction-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .conviction-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    .conviction-text h3 {
+      font-family: var(--ff-title);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .conviction-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .conviction-stat {
+      font-family: var(--ff-title);
+      font-size: 3.5rem;
+      color: var(--blue-hi);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .conviction-stat-label {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+  </a>
+  <div class="nav-links">
+    <a href="#manifesto">por qué</a>
+    <a href="#includes">qué incluye</a>
+    <a href="#pricing">planes</a>
+    <a href="mailto:hello@omitron.com.mx" class="nav-cta">habla con nosotros</a>
+  </div>
+</nav>
+
+<!-- HERO — dramatic, large type -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-lockup">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" class="hero-logo" />
+    <span class="hero-descriptor">nube privada · México</span>
+  </div>
+  <h2 class="hero-headline">
+    lo digital<br/>
+    <em>también puede ser tuyo.</em>
+  </h2>
+  <p class="hero-sub">
+    correo, archivos, gestión empresarial — todo en una plataforma propia,
+    operada en México, con tus datos bajo tu control y un precio que puedes proyectar.
+  </p>
+  <div class="hero-actions">
+    <a href="#manifesto" class="btn btn-primary">leer más →</a>
+    <a href="mailto:hello@omitron.com.mx" class="btn btn-ghost">hablemos</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><span>datos</span><span>en México</span></div>
+    <div class="stat"><span>precio</span><span>por empresa</span></div>
+    <div class="stat"><span>sin</span><span>contratos anuales</span></div>
+    <div class="stat"><span>0</span><span>dependencias</span></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span><b>soberanía digital</b></span><span>·</span>
+    <span><b>datos en México</b></span><span>·</span>
+    <span><b>precio por empresa</b></span><span>·</span>
+    <span><b>sin intermediarios</b></span><span>·</span>
+    <span><b>correo propio</b></span><span>·</span>
+    <span><b>archivos privados</b></span><span>·</span>
+    <span><b>gestión empresarial</b></span><span>·</span>
+    <span><b>open source</b></span><span>·</span>
+    <span><b>tú decides</b></span><span>·</span>
+    <span><b>soberanía digital</b></span><span>·</span>
+    <span><b>datos en México</b></span><span>·</span>
+    <span><b>precio por empresa</b></span><span>·</span>
+    <span><b>sin intermediarios</b></span><span>·</span>
+    <span><b>correo propio</b></span><span>·</span>
+    <span><b>archivos privados</b></span><span>·</span>
+    <span><b>gestión empresarial</b></span><span>·</span>
+    <span><b>open source</b></span><span>·</span>
+    <span><b>tú decides</b></span><span>·</span>
+  </div>
+</div>
+
+<!-- MANIFESTO — cream, editorial -->
+<section id="manifesto">
+  <div class="container">
+    <span class="section-label" style="color:var(--muted-d);">// por qué importa</span>
+    <div class="manifesto-body" style="margin-top:2.5rem;">
+      <p>
+        Las herramientas digitales que tu empresa usa todos los días —
+        el correo, los archivos, el sistema de gestión — no son tuyas.
+        Son servicios que rentas mes a mes, en dólares,
+        con tus datos guardados en servidores que no controlas.
+      </p>
+      <p>
+        No hay nada malo en usar servicios externos. El problema es
+        <strong>depender de ellos sin alternativa</strong>.
+        Cuando los precios suben, los pagas. Cuando cambian las condiciones, las aceptas.
+        Cuando fallan, esperas.
+      </p>
+      <div class="pull-quote">
+        "Lo que pagas en suscripciones cada año podría haberte dado una plataforma propia."
+      </div>
+      <p>
+        Omitron opera plataformas digitales completas para empresas mexicanas.
+        Tu correo, tus archivos, tu sistema de gestión —
+        corriendo en infraestructura dedicada para ti,
+        con tus datos en México, a un precio que puedes calcular y proyectar.
+      </p>
+      <p>
+        <strong>Sin dólares. Sin contratos anuales. Sin letra chica.</strong>
+        Solo una plataforma que funciona y un equipo que la mantiene.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- QUÉ INCLUYE -->
+<section id="includes">
+  <div class="container">
+    <span class="section-label">// qué incluye</span>
+    <h2 class="section-title">una plataforma.<br/>todo adentro.</h2>
+    <div class="bento">
+      <div class="bcard span2">
+        <span class="bcard-num">01</span>
+        <h3>Archivos, Correo y Colaboración</h3>
+        <p>el núcleo de tu empresa digital. almacenamiento compartido, correo @tudominio, edición colaborativa, calendario y contactos de equipo — todo en una sola plataforma, con un solo login.</p>
+        <div class="bcard-terminal">
+          <span class="t-line"><span class="p">→</span> correo corporativo @tudominio <span class="ok">activo</span></span>
+          <span class="t-line"><span class="p">→</span> archivos y documentos compartidos <span class="ok">activo</span></span>
+          <span class="t-line"><span class="p">→</span> calendario y contactos de equipo <span class="ok">activo</span></span>
+          <span class="t-line"><span class="p">→</span> app iOS y Android <span class="ok">activo</span></span>
+        </div>
+        <span class="bcard-tag">correo · archivos · calendario · contactos</span>
+      </div>
+      <div class="bcard">
+        <span class="bcard-num">02</span>
+        <h3>Gestión Empresarial</h3>
+        <p>contabilidad, inventario, ventas y compras en una plataforma integrada. sin licencias, sin suscripciones extra, incluido en tu plan.</p>
+        <span class="bcard-tag">contabilidad · inventario · ventas</span>
+      </div>
+      <div class="bcard">
+        <span class="bcard-num">03</span>
+        <h3>Un Login para Todo</h3>
+        <p>tu equipo entra con una sola cuenta a todo. das de alta o baja usuarios desde un solo lugar. sin gestionar contraseñas en cada herramienta.</p>
+        <span class="bcard-tag">usuarios · permisos · acceso único</span>
+      </div>
+      <div class="bcard">
+        <span class="bcard-num">04</span>
+        <h3>Respaldos y Continuidad</h3>
+        <p>copias de seguridad diarias de todos tus datos. si algo ocurre, recuperamos hasta 30 días atrás sin perder nada.</p>
+        <span class="bcard-tag">backups · recuperación · continuidad</span>
+      </div>
+      <div class="bcard">
+        <span class="bcard-num">05</span>
+        <h3>Lo que Necesites</h3>
+        <p>¿tienes alguna herramienta específica? lo evaluamos y si tiene sentido para tu empresa, lo agregamos a tu plataforma.</p>
+        <span class="bcard-tag">flexible · a la medida · sin límites</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING — flat per org -->
+<section id="pricing">
+  <div class="container">
+    <span class="section-label">// planes</span>
+    <h2 class="section-title">precio por empresa,<br/>no por persona.</h2>
+    <p style="color:var(--muted);font-size:0.9rem;max-width:45ch;margin-top:1rem;">agrega a todo tu equipo sin que el precio cambie. crece sin sorpresas.</p>
+    <div class="pricing-row">
+      <div class="ptier">
+        <div class="ptier-label">solo / pequeño</div>
+        <div class="ptier-price">$999 <small>MXN/mes</small></div>
+        <div class="ptier-for">hasta 5 personas · 200 GB</div>
+        <ul>
+          <li>Correo corporativo</li>
+          <li>Archivos y documentos</li>
+          <li>Calendario y contactos</li>
+          <li>App iOS y Android</li>
+          <li>Soporte por correo</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Solo">empezar →</a>
+      </div>
+      <div class="ptier featured">
+        <div class="ptier-label">equipo</div>
+        <div class="ptier-price">$2,499 <small>MXN/mes</small></div>
+        <div class="ptier-for">hasta 25 personas · 2 TB</div>
+        <ul>
+          <li>Todo lo de Solo</li>
+          <li>Edición colaborativa</li>
+          <li>Gestión empresarial</li>
+          <li>Monitoreo incluido</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Equipo">empezar →</a>
+      </div>
+      <div class="ptier">
+        <div class="ptier-label">empresa</div>
+        <div class="ptier-price">$5,999 <small>MXN/mes</small></div>
+        <div class="ptier-for">hasta 60 personas · 10 TB</div>
+        <ul>
+          <li>Todo lo de Equipo</li>
+          <li>Onboarding dedicado</li>
+          <li>SLA de disponibilidad</li>
+          <li>Migraciones incluidas</li>
+          <li>Soporte por WhatsApp</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Empresa">empezar →</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:var(--muted);">
+      ¿más de 60 personas o necesidades especiales? <a href="mailto:hello@omitron.com.mx" style="color:var(--blue-hi);text-decoration:none;">hablemos →</a>
+    </p>
+  </div>
+</section>
+
+<!-- CONVICTION -->
+<section id="conviction">
+  <div class="container">
+    <span class="section-label">// por qué Omitron</span>
+    <h2 class="section-title">sin rodeos.</h2>
+    <div class="values-grid">
+      <div class="vcard">
+        <span class="vcard-num">01 /</span>
+        <h3>Datos en México</h3>
+        <p>tu información vive en infraestructura en territorio mexicano. sin que salga del país, sin otras jurisdicciones.</p>
+      </div>
+      <div class="vcard">
+        <span class="vcard-num">02 /</span>
+        <h3>Precio que puedes proyectar</h3>
+        <p>sabes cuánto pagas hoy y cuánto pagarás el próximo año. sin variables ocultas, sin ajustes por tipo de cambio.</p>
+      </div>
+      <div class="vcard">
+        <span class="vcard-num">03 /</span>
+        <h3>Cero lock-in</h3>
+        <p>todo es software libre. si decides irte, te ayudamos a exportar todo. nunca te quedas atrapado.</p>
+      </div>
+      <div class="vcard">
+        <span class="vcard-num">04 /</span>
+        <h3>Trato directo</h3>
+        <p>hablas con quien opera tu plataforma. si algo no funciona, lo sabemos antes que tú y lo resolvemos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <span class="section-label">// contacto</span>
+  <h2 class="cta-title">¿por dónde<br/>empezamos?</h2>
+  <p>cuéntame qué usa tu empresa hoy y qué te preocupa.<br/>la primera plática no cuesta nada.</p>
+  <a href="mailto:hello@omitron.com.mx" class="cta-btn">hello@omitron.com.mx →</a>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+  </div>
+  <p>© 2026 Omitron · nube privada para empresas · México</p>
+</footer>
+
+</body>
+</html>

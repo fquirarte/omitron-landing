@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!--
+  MODELO C — PLATAFORMA DIGITAL COMPLETA
+  Target:   Fundadores / directores técnicos de startups y agencias en México
+  Precio:   Escalonado por uso real (almacenamiento + usuarios activos)
+            Starter $1,200 · Crecimiento $3,500 · Escala $7,999
+  Ingreso:  10 clientes Crecimiento = $35k MXN/mes
+  Pitch:    "Todo lo que necesita tu empresa, en una plataforma gestionada"
+  Tono:     Moderno, producto-forward, minimalista con credibilidad técnica
+  Diferencia: Muestra cada herramienta como producto, compara vs costo individual
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omitron — Plataforma Digital para tu Empresa</title>
+  <meta name="description" content="Una plataforma completa: archivos, correo, ERP, monitoreo y más. Paga solo lo que usas, en pesos, con tus datos en México." />
+  <link rel="icon" type="image/png" href="assets/img/Isotipo.Azul.png" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ── V3 — minimal, product-forward ── */
+
+    /* hero — clean, split */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      align-items: center;
+      padding: 8rem 4rem 6rem;
+      gap: 4rem;
+    }
+    @media (max-width: 900px) {
+      #hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; gap: 2rem; }
+      .hero-right { display: none; }
+    }
+    .hero-left { display: flex; flex-direction: column; gap: 0; }
+    .hero-left .hero-lockup { margin-bottom: 2.5rem; }
+    .hero-left .hero-headline {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      margin-bottom: 1.5rem;
+    }
+    .hero-left .hero-headline em { font-style: normal; color: var(--blue-hi); }
+    .hero-left .hero-sub { max-width: 42ch; margin-bottom: 2rem; }
+    .hero-left .hero-actions { justify-content: flex-start; }
+    .hero-glow { left: 25%; }
+
+    /* product stack widget */
+    .hero-right {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      overflow: hidden;
+    }
+    .stack-header {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .stack-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .stack-item:last-child { border-bottom: none; }
+    .stack-item-name {
+      font-size: 0.85rem;
+      color: var(--white);
+    }
+    .stack-item-desc {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .stack-status {
+      font-size: 0.7rem;
+      background: rgba(74,222,128,0.12);
+      color: #4ade80;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+
+    /* modules section */
+    #modules { padding: 6rem 0; }
+    .module-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .module-row + .module-row { margin-top: 1.5rem; }
+    @media (max-width: 768px) {
+      .module-row { grid-template-columns: 1fr; }
+    }
+    .module-info {
+      padding: 2.5rem 2.5rem;
+      border-right: 1px solid var(--border);
+    }
+    @media (max-width: 768px) {
+      .module-info { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+    .module-info h3 {
+      font-family: var(--ff-title);
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+    .module-info p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .module-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .module-tag {
+      font-size: 0.68rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .module-detail {
+      padding: 2.5rem 2.5rem;
+      background: var(--dark-2);
+    }
+    .module-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.82rem;
+    }
+    .module-feature:last-child { border-bottom: none; }
+    .module-feature .check { color: #4ade80; flex-shrink: 0; }
+    .module-feature .feat-text { color: rgba(255,255,255,0.75); }
+
+    /* pricing — usage based -->
+    #pricing { padding: 6rem 0; background: var(--dark-2); }
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+    }
+    .pc {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      position: relative;
+    }
+    .pc.featured { border-color: var(--blue); }
+    .pc-badge {
+      position: absolute;
+      top: -1px; left: 50%;
+      transform: translateX(-50%);
+      background: var(--blue);
+      color: white;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.8rem;
+      border-radius: 0 0 8px 8px;
+      font-family: var(--ff-body);
+    }
+    .pc-name {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue-hi);
+      margin-bottom: 1rem;
+    }
+    .pc-price {
+      font-family: var(--ff-title);
+      font-size: 2.5rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .pc-unit { font-size: 0.82rem; color: var(--muted); font-family: var(--ff-body); }
+    .pc-includes {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 1rem 0 1.5rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .pc ul { list-style: none; margin-bottom: 1.75rem; }
+    .pc ul li {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.72);
+      padding: 0.35rem 0;
+      display: flex; gap: 0.5rem;
+    }
+    .pc ul li::before { content: '→'; color: var(--blue-hi); }
+    .pc a {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-family: var(--ff-body);
+      font-size: 0.82rem;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+    .pc a:hover { border-color: var(--blue); color: white; }
+    .pc.featured a { background: var(--blue); border-color: var(--blue); color: white; }
+    .pc.featured a:hover { background: #0256c0; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+  </a>
+  <div class="nav-links">
+    <a href="#modules">plataforma</a>
+    <a href="#pricing">precios</a>
+    <a href="#how">proceso</a>
+    <a href="mailto:hello@omitron.com.mx" class="nav-cta">empezar →</a>
+  </div>
+</nav>
+
+<!-- HERO — split, product widget -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-left">
+    <div class="hero-lockup">
+      <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" class="hero-logo" />
+      <span class="hero-descriptor">plataforma digital · México</span>
+    </div>
+    <h2 class="hero-headline">
+      una plataforma.<br/>
+      <em>todo incluido.</em>
+    </h2>
+    <p class="hero-sub">
+      archivos, correo, ERP y más — en una sola plataforma gestionada para tu empresa.
+      pagas lo que usas, en pesos, con tus datos en México.
+    </p>
+    <div class="hero-actions">
+      <a href="#pricing" class="btn btn-primary">ver precios →</a>
+      <a href="#modules" class="btn btn-ghost">qué incluye</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="stack-header">tu plataforma — activa</div>
+    <div class="stack-item">
+      <div>
+        <div class="stack-item-name">Archivos y Colaboración</div>
+        <div class="stack-item-desc">documentos, fotos, sync, edición en línea</div>
+      </div>
+      <div class="stack-status">activo</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="stack-item-name">Correo Corporativo</div>
+        <div class="stack-item-desc">@tudominio · webmail · antispam</div>
+      </div>
+      <div class="stack-status">activo</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="stack-item-name">Gestión Empresarial</div>
+        <div class="stack-item-desc">contabilidad · inventario · CRM</div>
+      </div>
+      <div class="stack-status">activo</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="stack-item-name">Identidad y Acceso</div>
+        <div class="stack-item-desc">un login para todo tu equipo</div>
+      </div>
+      <div class="stack-status">activo</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="stack-item-name">Respaldos Automáticos</div>
+        <div class="stack-item-desc">diarios · 30 días de historial</div>
+      </div>
+      <div class="stack-status">activo</div>
+    </div>
+    <div class="stack-item">
+      <div>
+        <div class="stack-item-name">Monitoreo 24/7</div>
+        <div class="stack-item-desc">alertas proactivas · soporte incluido</div>
+      </div>
+      <div class="stack-status">activo</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span><b>archivos compartidos</b></span><span>·</span>
+    <span><b>correo @tudominio</b></span><span>·</span>
+    <span><b>erp y contabilidad</b></span><span>·</span>
+    <span><b>un login para todo</b></span><span>·</span>
+    <span><b>monitoreo 24/7</b></span><span>·</span>
+    <span><b>backups diarios</b></span><span>·</span>
+    <span><b>datos en México</b></span><span>·</span>
+    <span><b>pagas lo que usas</b></span><span>·</span>
+    <span><b>sin contratos</b></span><span>·</span>
+    <span><b>archivos compartidos</b></span><span>·</span>
+    <span><b>correo @tudominio</b></span><span>·</span>
+    <span><b>erp y contabilidad</b></span><span>·</span>
+    <span><b>un login para todo</b></span><span>·</span>
+    <span><b>monitoreo 24/7</b></span><span>·</span>
+    <span><b>backups diarios</b></span><span>·</span>
+    <span><b>datos en México</b></span><span>·</span>
+    <span><b>pagas lo que usas</b></span><span>·</span>
+    <span><b>sin contratos</b></span><span>·</span>
+  </div>
+</div>
+
+<!-- MODULES — cada servicio en detalle -->
+<section id="modules">
+  <div class="container">
+    <span class="section-label">// la plataforma</span>
+    <h2 class="section-title">cada herramienta,<br/>explicada.</h2>
+
+    <div class="module-row">
+      <div class="module-info">
+        <h3>Archivos y Colaboración</h3>
+        <p>un espacio digital compartido para toda tu empresa. sube, organiza y comparte archivos. edita documentos, hojas de cálculo y presentaciones en línea, sin instalar nada. sincronizado en todos tus dispositivos.</p>
+        <div class="module-tags">
+          <span class="module-tag">almacenamiento</span>
+          <span class="module-tag">documentos</span>
+          <span class="module-tag">hojas de cálculo</span>
+          <span class="module-tag">app móvil</span>
+        </div>
+      </div>
+      <div class="module-detail">
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">carpetas compartidas por equipo o proyecto</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">edición colaborativa en tiempo real</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">sync automático en computadora y celular</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">compartir con clientes externos (con expiración)</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">historial de versiones de documentos</span></div>
+      </div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-info">
+        <h3>Correo Corporativo</h3>
+        <p>correo @tudominio.com para todo tu equipo. webmail desde el navegador, app de celular, listas de distribución y antispam incluidos. configura tantas cuentas como necesites.</p>
+        <div class="module-tags">
+          <span class="module-tag">@tudominio</span>
+          <span class="module-tag">webmail</span>
+          <span class="module-tag">antispam</span>
+          <span class="module-tag">IMAP/SMTP</span>
+        </div>
+      </div>
+      <div class="module-detail">
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">cuentas individuales @tudominio.com</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">webmail moderno desde cualquier navegador</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">compatible con Outlook, Apple Mail, Thunderbird</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">listas de distribución y alias</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">filtro antispam y antivirus incluido</span></div>
+      </div>
+    </div>
+
+    <div class="module-row">
+      <div class="module-info">
+        <h3>Gestión Empresarial</h3>
+        <p>contabilidad, inventario, ventas, compras y más en una sola plataforma. sin licencias costosas ni implementaciones de meses. incluido en tu plan, listo desde el primer día.</p>
+        <div class="module-tags">
+          <span class="module-tag">contabilidad</span>
+          <span class="module-tag">inventario</span>
+          <span class="module-tag">ventas</span>
+          <span class="module-tag">compras</span>
+          <span class="module-tag">CRM</span>
+        </div>
+      </div>
+      <div class="module-detail">
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">catálogo de cuentas configurable</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">inventario con movimientos y valuación</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">cotizaciones, órdenes de compra y venta</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">CRM básico y seguimiento de clientes</span></div>
+        <div class="module-feature"><span class="check">✓</span><span class="feat-text">reportes y exportación a Excel</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRICING — usage based -->
+<section id="pricing">
+  <div class="container">
+    <span class="section-label">// precios</span>
+    <h2 class="section-title">pagas lo que usas.<br/>nada más.</h2>
+    <p style="color:var(--muted);font-size:0.88rem;max-width:50ch;margin-top:1rem;">el precio depende del almacenamiento y las personas activas. sin cobros sorpresa, sin compromisos anuales.</p>
+
+    <div class="pricing-cards">
+      <div class="pc">
+        <div class="pc-name">starter</div>
+        <div class="pc-price">$1,200</div>
+        <div class="pc-unit">MXN / mes</div>
+        <div class="pc-includes">hasta 10 personas · 500 GB · todas las apps</div>
+        <ul>
+          <li>Archivos y colaboración</li>
+          <li>Correo corporativo</li>
+          <li>Un login para todo</li>
+          <li>Backups diarios</li>
+          <li>Soporte por correo</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Starter">empezar →</a>
+      </div>
+
+      <div class="pc featured">
+        <div class="pc-badge">más popular</div>
+        <div class="pc-name">crecimiento</div>
+        <div class="pc-price">$3,500</div>
+        <div class="pc-unit">MXN / mes</div>
+        <div class="pc-includes">hasta 30 personas · 3 TB · todas las apps</div>
+        <ul>
+          <li>Todo lo de Starter</li>
+          <li>Gestión empresarial (ERP)</li>
+          <li>Monitoreo y alertas</li>
+          <li>Soporte prioritario</li>
+          <li>Migración incluida</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Crecimiento">empezar →</a>
+      </div>
+
+      <div class="pc">
+        <div class="pc-name">escala</div>
+        <div class="pc-price">$7,999</div>
+        <div class="pc-unit">MXN / mes</div>
+        <div class="pc-includes">hasta 80 personas · 10 TB · todas las apps</div>
+        <ul>
+          <li>Todo lo de Crecimiento</li>
+          <li>Onboarding personalizado</li>
+          <li>SLA de disponibilidad</li>
+          <li>Soporte por WhatsApp</li>
+          <li>Capacitación para el equipo</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Escala">empezar →</a>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:var(--muted);">
+      todos los precios incluyen IVA · factura disponible · sin contrato anual ·
+      <a href="mailto:hello@omitron.com.mx" style="color:var(--blue-hi);text-decoration:none;">¿más de 80 personas?</a>
+    </p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="container">
+    <span class="section-label">// proceso</span>
+    <h2 class="section-title">de cero a funcionando<br/>en menos de una semana.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>diagnóstico</h3>
+        <p>nos cuentas qué usa tu empresa hoy. identificamos qué necesitas y qué plan tiene más sentido.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>configuramos</h3>
+        <p>armamos tu plataforma completa. dominios, correos, usuarios, permisos — todo listo antes de que llegue tu equipo.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>migramos</h3>
+        <p>si tienes datos en otro servicio, los traemos. sin pérdidas, sin interrupciones en tu operación.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h3>capacitamos</h3>
+        <p>una sesión con tu equipo para que todos sepan usar la plataforma. grabada para futuros integrantes.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">05</span>
+        <h3>operamos</h3>
+        <p>actualizaciones, backups, monitoreo — nosotros. tú te enfocas en lo que importa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <span class="section-label">// empieza hoy</span>
+  <h2 class="cta-title">¿cuándo arrancamos?</h2>
+  <p>mándanos un correo y en menos de 24 horas<br/>tienes una propuesta concreta para tu empresa.</p>
+  <a href="mailto:hello@omitron.com.mx" class="cta-btn">hello@omitron.com.mx →</a>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+  </div>
+  <p>© 2026 Omitron · plataforma digital para empresas · México</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<!--
+  MODELO A — ESPACIO DE TRABAJO PRIVADO
+  Target:   Pymes 5-50 personas que pagan Google Workspace o similares
+  Precio:   Por usuario/mes en pesos — Básico $149 · Equipo $219 · Pro $349
+  Ingreso:  100 usuarios = $15k-35k MXN/mes (recurrente)
+  Pitch:    "La alternativa mexicana a Google Workspace, con tus datos en México"
+  Ventaja:  Precio transparente, pesos, datos locales, sin contratos largos
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omitron — Tu Espacio de Trabajo, Sin Dólares</title>
+  <meta name="description" content="Correo, almacenamiento y colaboración para tu empresa — desde $149 MXN por persona. Sin suscripciones en dólares. Datos en México." />
+  <link rel="icon" type="image/png" href="assets/img/Isotipo.Azul.png" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    /* ── V1 OVERRIDES ───────────────────── */
+    #hero {
+      background: var(--cream);
+      color: var(--dark);
+    }
+    #hero .hero-glow { display: none; }
+    #hero .hero-descriptor { color: var(--muted-d); border-color: var(--border-c); }
+    #hero .hero-headline { color: var(--dark); }
+    #hero .hero-headline em { color: var(--blue); font-style: normal; }
+    #hero .hero-sub { color: rgba(18,16,17,0.65); }
+    #hero .btn-ghost { border-color: var(--border-c); color: var(--dark); }
+    #hero .hero-stats { border-top-color: var(--border-c); }
+    #hero .stat span:first-child { color: var(--blue); }
+    #hero .stat span:last-child { color: rgba(18,16,17,0.5); }
+
+    /* pricing */
+    #pricing { padding: 6rem 0; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    @media (max-width: 768px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+    .plan {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .plan.featured {
+      border-color: var(--blue);
+      background: linear-gradient(160deg, var(--dark-2), rgba(3,104,228,0.1));
+      position: relative;
+    }
+    .plan-badge {
+      position: absolute;
+      top: -1px; left: 50%; transform: translateX(-50%);
+      background: var(--blue);
+      color: white;
+      font-size: 0.67rem;
+      font-family: var(--ff-body);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.85rem;
+      border-radius: 0 0 8px 8px;
+    }
+    .plan-name {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue-hi);
+      margin-bottom: 1rem;
+    }
+    .plan-price {
+      font-family: var(--ff-title);
+      font-size: 2.8rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .plan-price .unit {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-family: var(--ff-body);
+    }
+    .plan-min {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .plan-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 1.75rem;
+      line-height: 1.6;
+    }
+    .plan-features {
+      list-style: none;
+      flex: 1;
+      margin-bottom: 2rem;
+    }
+    .plan-features li {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.72);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 0.5rem;
+    }
+    .plan-features li::before { content: '→'; color: var(--blue-hi); flex-shrink: 0; }
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: var(--ff-body);
+      font-size: 0.83rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all 0.15s;
+    }
+    .plan-cta:hover { border-color: var(--blue); color: var(--white); }
+    .plan.featured .plan-cta {
+      background: var(--blue); border-color: var(--blue); color: white;
+    }
+    .plan.featured .plan-cta:hover { background: #0256c0; }
+    .pricing-note {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+  </a>
+  <div class="nav-links">
+    <a href="#includes">qué incluye</a>
+    <a href="#pricing">planes</a>
+    <a href="#how">cómo funciona</a>
+    <a href="mailto:hello@omitron.com.mx" class="nav-cta">empezar →</a>
+  </div>
+</nav>
+
+<!-- HERO — light, pricing-forward -->
+<section id="hero">
+  <div class="hero-lockup">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" class="hero-logo" style="filter:invert(1);" />
+    <span class="hero-descriptor">correo · archivos · colaboración · México</span>
+  </div>
+
+  <h2 class="hero-headline">
+    el espacio de trabajo<br/>
+    <em>que tu empresa merece.</em>
+  </h2>
+
+  <p class="hero-sub">
+    correo corporativo, almacenamiento y colaboración para tu equipo —
+    desde <strong style="color:var(--blue)">$149 MXN por persona al mes</strong>,
+    con tus datos en México y sin contratos de largo plazo.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#pricing" class="btn btn-primary">ver planes →</a>
+    <a href="mailto:hello@omitron.com.mx" class="btn btn-ghost">hablemos</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat"><span>desde $149</span><span>MXN / persona</span></div>
+    <div class="stat"><span>datos</span><span>en México</span></div>
+    <div class="stat"><span>sin</span><span>contratos</span></div>
+    <div class="stat"><span>100%</span><span>open source</span></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span><b>correo @tuempresa</b></span><span>·</span>
+    <span><b>archivos compartidos</b></span><span>·</span>
+    <span><b>edición colaborativa</b></span><span>·</span>
+    <span><b>calendario de equipo</b></span><span>·</span>
+    <span><b>app iOS &amp; Android</b></span><span>·</span>
+    <span><b>backups diarios</b></span><span>·</span>
+    <span><b>un login para todo</b></span><span>·</span>
+    <span><b>datos en México</span><span>·</span>
+    <span><b>sin dólares</b></span><span>·</span>
+    <span><b>correo @tuempresa</b></span><span>·</span>
+    <span><b>archivos compartidos</b></span><span>·</span>
+    <span><b>edición colaborativa</b></span><span>·</span>
+    <span><b>calendario de equipo</b></span><span>·</span>
+    <span><b>app iOS &amp; Android</b></span><span>·</span>
+    <span><b>backups diarios</b></span><span>·</span>
+    <span><b>un login para todo</b></span><span>·</span>
+    <span><b>datos en México</span><span>·</span>
+    <span><b>sin dólares</b></span><span>·</span>
+  </div>
+</div>
+
+<!-- QUÉ INCLUYE -->
+<section id="includes">
+  <div class="container">
+    <span class="section-label">// qué incluye</span>
+    <h2 class="section-title">todo lo que necesita<br/>tu equipo para trabajar.</h2>
+    <div class="bento">
+      <div class="bcard span2">
+        <span class="bcard-num">01</span>
+        <h3>Archivos y Colaboración</h3>
+        <p>un espacio compartido para todos tus documentos, fotos y archivos. sincronizado en todos los dispositivos, accesible desde el navegador, con edición en línea sin instalar nada.</p>
+        <div class="bcard-terminal">
+          <span class="t-line"><span class="p">→</span> carpetas de equipo y personales <span class="ok">✓</span></span>
+          <span class="t-line"><span class="p">→</span> editar documentos y hojas de cálculo en línea <span class="ok">✓</span></span>
+          <span class="t-line"><span class="p">→</span> sync automático en celular y computadora <span class="ok">✓</span></span>
+          <span class="t-line"><span class="p">→</span> comparte con clientes, con expiración y contraseña <span class="ok">✓</span></span>
+        </div>
+        <span class="bcard-tag">archivos · documentos · hojas de cálculo · presentaciones</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">02</span>
+        <h3>Correo Corporativo</h3>
+        <p>correo @tuempresa.com con webmail, app de celular, antispam y firmas de marca. sin depender de ningún proveedor externo.</p>
+        <span class="bcard-tag">@tudominio · webmail · antispam · IMAP</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">03</span>
+        <h3>Calendario y Contactos</h3>
+        <p>calendarios compartidos para todo el equipo, contactos de empresa centralizados y sincronizados con tu celular.</p>
+        <span class="bcard-tag">calendario · contactos · celular sync</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">04</span>
+        <h3>Un Login para Todo</h3>
+        <p>una sola cuenta para acceder a todas las herramientas. das de alta a un empleado una vez y tiene acceso a todo.</p>
+        <span class="bcard-tag">SSO · usuarios · permisos centralizados</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">05</span>
+        <h3>Respaldos Automáticos</h3>
+        <p>copias de seguridad diarias de todos tus datos. si algo sale mal, recuperamos hasta 30 días atrás.</p>
+        <span class="bcard-tag">backups diarios · 30 días · recuperación</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">06</span>
+        <h3>Soporte Incluido</h3>
+        <p>soporte por correo y WhatsApp en horario laboral. para usuarios y para administradores. en español, siempre.</p>
+        <span class="bcard-tag">soporte · español · correo · WhatsApp</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="background:var(--dark-2);">
+  <div class="container">
+    <span class="section-label">// planes</span>
+    <h2 class="section-title">elige tu plan.<br/>cancela cuando quieras.</h2>
+
+    <div class="pricing-grid">
+      <div class="plan">
+        <div class="plan-name">básico</div>
+        <div class="plan-price">$149 <span class="unit">MXN / persona / mes</span></div>
+        <div class="plan-min">mínimo 3 personas</div>
+        <div class="plan-desc">para equipos pequeños que necesitan correo y archivos compartidos.</div>
+        <ul class="plan-features">
+          <li>Correo @tudominio.com</li>
+          <li>50 GB por persona</li>
+          <li>Archivos compartidos</li>
+          <li>App iOS y Android</li>
+          <li>Soporte por correo</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Básico" class="plan-cta">empezar →</a>
+      </div>
+
+      <div class="plan featured">
+        <div class="plan-badge">más popular</div>
+        <div class="plan-name">equipo</div>
+        <div class="plan-price">$219 <span class="unit">MXN / persona / mes</span></div>
+        <div class="plan-min">mínimo 5 personas</div>
+        <div class="plan-desc">todo lo necesario para que tu empresa trabaje junta, sin límites.</div>
+        <ul class="plan-features">
+          <li>Todo lo de Básico</li>
+          <li>200 GB por persona</li>
+          <li>Edición colaborativa en línea</li>
+          <li>Calendario de equipo</li>
+          <li>Contactos de empresa</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Equipo" class="plan-cta">empezar →</a>
+      </div>
+
+      <div class="plan">
+        <div class="plan-name">empresa</div>
+        <div class="plan-price">$349 <span class="unit">MXN / persona / mes</span></div>
+        <div class="plan-min">mínimo 10 personas</div>
+        <div class="plan-desc">para empresas que también necesitan gestión interna y monitoreo.</div>
+        <ul class="plan-features">
+          <li>Todo lo de Equipo</li>
+          <li>500 GB por persona</li>
+          <li>ERP y gestión empresarial</li>
+          <li>Monitoreo y alertas</li>
+          <li>Onboarding personalizado</li>
+          <li>SLA de disponibilidad</li>
+        </ul>
+        <a href="mailto:hello@omitron.com.mx?subject=Plan Empresa" class="plan-cta">empezar →</a>
+      </div>
+    </div>
+    <p class="pricing-note">todos los precios incluyen IVA · factura disponible · cancela cuando quieras</p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="container">
+    <span class="section-label">// cómo funciona</span>
+    <h2 class="section-title">en tres días<br/>tu equipo ya está adentro.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>platícanos</h3>
+        <p>cuántas personas, qué dominios, qué necesitan. en 24 horas tienes una propuesta concreta.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>configuramos todo</h3>
+        <p>cuentas, dominios, correo, carpetas. listo para que tu equipo entre desde el primer día.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>migración sin drama</h3>
+        <p>si tienes correos o archivos en otro servicio, los movemos. sin pérdida de datos, sin tiempo caído.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h3>tu equipo entra</h3>
+        <p>les mandamos invitación y en media hora ya están usando su nuevo espacio de trabajo.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">05</span>
+        <h3>nosotros lo mantenemos</h3>
+        <p>actualizaciones, backups, monitoreo — todo en segundo plano. tú solo trabajas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <span class="section-label">// empieza hoy</span>
+  <h2 class="cta-title">¿cuántas personas<br/>tiene tu equipo?</h2>
+  <p>mándanos un correo y en menos de 24 horas<br/>tienes tu espacio de trabajo listo para arrancar.</p>
+  <a href="mailto:hello@omitron.com.mx" class="cta-btn">hello@omitron.com.mx →</a>
+</section>
+
+<footer>
+  <div class="footer-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+  </div>
+  <p>© 2026 Omitron · espacio de trabajo privado · México</p>
+</footer>
+
+</body>
+</html>

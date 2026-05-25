@@ -3,300 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omitron — Tu Nube Privada en México</title>
-  <meta name="description" content="Almacenamiento, correo corporativo y ERP propios — gestionados por nosotros, con tus datos en México. Pagas solo lo que usas." />
+  <title>Omitron — Elige tu Modelo</title>
   <link rel="icon" type="image/png" href="assets/img/Isotipo.Azul.png" />
   <link rel="stylesheet" href="css/main.css" />
+  <style>
+    body { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
+    .selector {
+      max-width: 960px;
+      width: 100%;
+    }
+    .selector-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .selector-header img { height: 52px; margin-bottom: 1.5rem; }
+    .selector-header h1 { font-family: var(--ff-title); font-size: 1.6rem; margin-bottom: 0.5rem; }
+    .selector-header p { color: var(--muted); font-size: 0.85rem; }
+    .models {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) { .models { grid-template-columns: 1fr; } }
+    .model-card {
+      background: var(--dark-3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-decoration: none;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .model-card:hover { border-color: var(--blue); transform: translateY(-2px); }
+    .model-num {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--blue-hi);
+      margin-bottom: 1rem;
+    }
+    .model-card h2 { font-family: var(--ff-title); font-size: 1.1rem; margin-bottom: 0.75rem; line-height: 1.3; }
+    .model-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
+    .model-target {
+      font-size: 0.72rem;
+      color: var(--muted);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .model-target strong { color: rgba(255,255,255,0.6); }
+    .model-cta {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--blue-hi);
+    }
+  </style>
 </head>
 <body>
-
-<!-- NAV ──────────────────────────────────────────────────── -->
-<nav>
-  <a href="#" class="nav-brand">
-    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
-  </a>
-  <div class="nav-links">
-    <a href="#problem">el problema</a>
-    <a href="#apps">qué incluye</a>
-    <a href="#how">cómo funciona</a>
-    <a href="#values">nosotros</a>
-    <a href="mailto:hello@omitron.com.mx" class="nav-cta">contacto</a>
-  </div>
-</nav>
-
-<!-- HERO ─────────────────────────────────────────────────── -->
-<section id="hero">
-  <div class="hero-glow"></div>
-
-  <div class="hero-lockup">
-    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" class="hero-logo" />
-    <span class="hero-descriptor">nube privada · apps gestionadas · México</span>
-  </div>
-
-  <h2 class="hero-headline">
-    deja de rentar<br/>
-    <em>lo que puede ser tuyo.</em>
-  </h2>
-
-  <p class="hero-sub">
-    almacenamiento, correo corporativo, ERP y más —
-    gestionados por nosotros, con tus datos en México.
-    pagas solo lo que usas, sin compromisos de largo plazo.
-  </p>
-
-  <div class="hero-actions">
-    <a href="mailto:hello@omitron.com.mx" class="btn btn-primary">hablemos →</a>
-    <a href="#apps" class="btn btn-ghost">qué incluye</a>
-  </div>
-
-  <div class="hero-stats">
-    <div class="stat">
-      <span>datos</span>
-      <span>en México</span>
+  <div class="selector">
+    <div class="selector-header">
+      <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+      <h1>tres modelos de negocio</h1>
+      <p>cada landing tiene un pitch distinto. elige el que mejor represente lo que quieres vender.</p>
     </div>
-    <div class="stat">
-      <span>pagas</span>
-      <span>lo que usas</span>
-    </div>
-    <div class="stat">
-      <span>100%</span>
-      <span>open source</span>
-    </div>
-    <div class="stat">
-      <span>0</span>
-      <span>vendor lock-in</span>
-    </div>
-  </div>
-</section>
 
-<!-- MARQUEE ──────────────────────────────────────────────── -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span><b>almacenamiento propio</b></span><span>·</span>
-    <span><b>correo corporativo</b></span><span>·</span>
-    <span><b>erp &amp; contabilidad</b></span><span>·</span>
-    <span><b>datos en México</b></span><span>·</span>
-    <span><b>pagas lo que usas</b></span><span>·</span>
-    <span><b>un login para todo</b></span><span>·</span>
-    <span><b>backups automáticos</b></span><span>·</span>
-    <span><b>soporte incluido</b></span><span>·</span>
-    <span><b>open source</b></span><span>·</span>
-    <span><b>sin contratos</b></span><span>·</span>
-    <!-- duplicate for seamless loop -->
-    <span><b>almacenamiento propio</b></span><span>·</span>
-    <span><b>correo corporativo</b></span><span>·</span>
-    <span><b>erp &amp; contabilidad</b></span><span>·</span>
-    <span><b>datos en México</b></span><span>·</span>
-    <span><b>pagas lo que usas</b></span><span>·</span>
-    <span><b>un login para todo</b></span><span>·</span>
-    <span><b>backups automáticos</b></span><span>·</span>
-    <span><b>soporte incluido</b></span><span>·</span>
-    <span><b>open source</b></span><span>·</span>
-    <span><b>sin contratos</b></span><span>·</span>
-  </div>
-</div>
-
-<!-- PROBLEM ──────────────────────────────────────────────── -->
-<section id="problem">
-  <div class="container">
-    <span class="section-label">// el problema</span>
-    <h2 class="section-title">tus herramientas<br/>no deberían ser una renta.</h2>
-
-    <div class="problem-grid">
-      <div>
-        <p class="section-sub">
-          la mayoría de las herramientas digitales hoy son suscripciones mensuales
-          en dólares, con tus datos en servidores en otro país y precios que
-          suben cada año sin que lo decidas tú.
-          hay una alternativa más inteligente.
-        </p>
-
-        <div class="problem-list" style="margin-top: 2.5rem;">
-          <div class="problem-item">
-            <div class="problem-kicker">01 /</div>
-            <h3>la factura crece aunque no hagas nada</h3>
-            <p>más usuarios, más almacenamiento, más herramientas — cada mes cuesta más. sin que lo hayas pedido.</p>
-          </div>
-          <div class="problem-item">
-            <div class="problem-kicker">02 /</div>
-            <h3>tus datos en servidores de otro país</h3>
-            <p>bajo otras leyes, en otras jurisdicciones. la ley mexicana de protección de datos aplica a tu empresa — y tus datos están lejos.</p>
-          </div>
-          <div class="problem-item">
-            <div class="problem-kicker">03 /</div>
-            <h3>no sabes qué pagarás el próximo año</h3>
-            <p>los precios cambian, los planes cambian, las condiciones cambian. proyectar costos de tecnología se vuelve imposible.</p>
-          </div>
-          <div class="problem-item">
-            <div class="problem-kicker">04 /</div>
-            <h3>salir es más difícil que entrar</h3>
-            <p>tus datos, flujos y equipo quedan atados a una plataforma. migrar se convierte en un proyecto de meses.</p>
-          </div>
+    <div class="models">
+      <a href="v1.html" class="model-card">
+        <div class="model-num">modelo 01 / más alcanzable</div>
+        <h2>Espacio de Trabajo Privado</h2>
+        <p>reemplaza el correo y almacenamiento que pagan en dólares. precio por persona, desde $149 MXN/mes. el pitch más fácil de vender a cualquier pyme.</p>
+        <div class="model-target">
+          <strong>target:</strong> equipos de 3–30 personas · pymes sin IT interno<br/>
+          <strong>precio:</strong> $149–$349 MXN/persona/mes<br/>
+          <strong>ingresos potenciales:</strong> 100 usuarios = ~$20k MXN/mes
         </div>
-      </div>
+        <span class="model-cta">ver landing →</span>
+      </a>
 
-      <div class="problem-visual">
-        <div class="terminal-bar">
-          <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-          <span class="terminal-title">omitron — cómo funciona el cobro</span>
+      <a href="v2.html" class="model-card">
+        <div class="model-num">modelo 02 / mayor ticket</div>
+        <h2>La Nube Soberana</h2>
+        <p>plataforma completa por empresa, no por persona. ideal para directivos que valoran control y soberanía de datos. narrativa editorial, menos técnico.</p>
+        <div class="model-target">
+          <strong>target:</strong> empresas 10–60 personas · dueños/directores<br/>
+          <strong>precio:</strong> $999–$5,999 MXN/empresa/mes<br/>
+          <strong>ingresos potenciales:</strong> 20 clientes = ~$50k MXN/mes
         </div>
-        <span class="t-line"><span class="dim">// sin planes inflados</span></span>
-        <span class="t-line"><span class="p">→</span> <span class="cmd">pagas por lo que realmente usas</span></span>
-        <span class="t-line"><span class="ok">almacenamiento · usuarios · apps activas</span></span>
-        <span class="t-line"><span class="dim">─────────────────────────────────</span></span>
-        <span class="t-line"><span class="dim">// predecible y en pesos</span></span>
-        <span class="t-line"><span class="p">→</span> <span class="cmd">puedes calcular y proyectar</span></span>
-        <span class="t-line" style="color:rgba(74,222,128,0.7);">sin surpresas. sin USD.</span>
-        <span class="t-line"><span class="p">$</span> <span class="t-cursor"></span></span>
-        <div style="margin-top:1.75rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.07);">
-          <span class="t-line" style="font-size:0.7rem; color:rgba(255,255,255,0.22);">tus datos. tu plataforma. tu precio.</span>
+        <span class="model-cta">ver landing →</span>
+      </a>
+
+      <a href="v3.html" class="model-card">
+        <div class="model-num">modelo 03 / más completo</div>
+        <h2>Plataforma Digital Completa</h2>
+        <p>muestra cada herramienta en detalle. precio escalonado por uso real. para fundadores y directores técnicos que quieren ver exactamente qué reciben.</p>
+        <div class="model-target">
+          <strong>target:</strong> startups y agencias · founders técnicos<br/>
+          <strong>precio:</strong> $1,200–$7,999 MXN/mes<br/>
+          <strong>ingresos potenciales:</strong> 10 clientes = ~$35k MXN/mes
         </div>
-      </div>
+        <span class="model-cta">ver landing →</span>
+      </a>
     </div>
   </div>
-</section>
-
-<!-- APPS ─────────────────────────────────────────────────── -->
-<section id="apps">
-  <div class="container">
-    <span class="section-label">// qué incluye</span>
-    <h2 class="section-title">todo lo que necesita<br/>tu empresa.</h2>
-
-    <div class="bento">
-      <div class="bcard span2">
-        <span class="bcard-num">01</span>
-        <h3>Almacenamiento y Colaboración</h3>
-        <p>guarda, comparte y edita archivos desde cualquier dispositivo. documentos, fotos, calendarios y contactos sincronizados — sin que tus archivos salgan de México. incluye app para celular y edición en línea.</p>
-        <div class="bcard-terminal">
-          <span class="t-line"><span class="p">→</span> archivos y carpetas compartidas <span class="ok">✓</span></span>
-          <span class="t-line"><span class="p">→</span> edición de documentos en línea <span class="ok">✓</span></span>
-          <span class="t-line"><span class="p">→</span> app iOS y Android <span class="ok">✓</span></span>
-          <span class="t-line"><span class="p">→</span> sincronización automática <span class="ok">✓</span></span>
-        </div>
-        <span class="bcard-tag">archivos · documentos · fotos · calendario</span>
-      </div>
-
-      <div class="bcard">
-        <span class="bcard-num">02</span>
-        <h3>Gestión Empresarial</h3>
-        <p>contabilidad, inventario, ventas, compras y nómina en una sola plataforma. sin licencias costosas, sin suscripciones en dólares.</p>
-        <span class="bcard-tag">contabilidad · inventario · crm · nómina</span>
-      </div>
-
-      <div class="bcard">
-        <span class="bcard-num">03</span>
-        <h3>Correo Corporativo</h3>
-        <p>correo @tuempresa.com gestionado en tu propia infraestructura. webmail, app de celular, antispam incluido — y los mensajes se quedan en México.</p>
-        <span class="bcard-tag">@tudominio · webmail · antispam</span>
-      </div>
-
-      <div class="bcard">
-        <span class="bcard-num">04</span>
-        <h3>Un Login para Todo</h3>
-        <p>un solo usuario y contraseña para acceder a todas tus herramientas. gestión centralizada de cuentas y permisos para todo tu equipo.</p>
-        <span class="bcard-tag">acceso único · gestión de usuarios · seguro</span>
-      </div>
-
-      <div class="bcard">
-        <span class="bcard-num">05</span>
-        <h3>Monitoreo 24/7</h3>
-        <p>vigilamos tu plataforma todo el tiempo. dashboards en tiempo real, alertas automáticas y revisión proactiva antes de que algo afecte tu operación.</p>
-        <span class="bcard-tag">alertas · disponibilidad · soporte</span>
-      </div>
-
-      <div class="bcard">
-        <span class="bcard-num">06</span>
-        <h3>Lo que Necesites</h3>
-        <p>¿tienes alguna herramienta específica en mente? podemos agregar casi cualquier aplicación a tu plataforma. cuéntanos y lo evaluamos.</p>
-        <span class="bcard-tag">a la medida · flexible · sin límites</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- HOW ──────────────────────────────────────────────────── -->
-<section id="how">
-  <div class="container">
-    <span class="section-label">// cómo funciona</span>
-    <h2 class="section-title">listo en días,<br/>no en meses.</h2>
-    <div class="steps">
-      <div class="step">
-        <span class="step-num">01</span>
-        <h3>platicamos</h3>
-        <p>nos cuentas qué herramientas usas y qué necesitas. sin tecnicismos, sin compromiso.</p>
-      </div>
-      <div class="step">
-        <span class="step-num">02</span>
-        <h3>armamos tu plataforma</h3>
-        <p>configuramos todo — almacenamiento, correo, gestión, usuarios — listo para usar desde el primer día.</p>
-      </div>
-      <div class="step">
-        <span class="step-num">03</span>
-        <h3>movemos tus datos</h3>
-        <p>migramos lo que necesites desde donde esté hoy. tu equipo no pierde nada.</p>
-      </div>
-      <div class="step">
-        <span class="step-num">04</span>
-        <h3>te mostramos cómo usarlo</h3>
-        <p>capacitamos a tu equipo. es igual de fácil que lo que ya usan — solo que tuyo.</p>
-      </div>
-      <div class="step">
-        <span class="step-num">05</span>
-        <h3>nosotros lo operamos</h3>
-        <p>tú te enfocas en tu negocio. nosotros mantenemos todo corriendo detrás de escena.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VALUES ───────────────────────────────────────────────── -->
-<section id="values">
-  <div class="container">
-    <span class="section-label">// nosotros</span>
-    <h2 class="section-title">sin rodeos.</h2>
-    <div class="values-grid">
-      <div class="vcard">
-        <span class="vcard-num">01 /</span>
-        <h3>Tus datos, tus reglas</h3>
-        <p>todo corre en infraestructura dedicada para tu empresa, en México. nadie más tiene acceso — ni nosotros sin tu permiso.</p>
-      </div>
-      <div class="vcard">
-        <span class="vcard-num">02 /</span>
-        <h3>Pagas lo que usas</h3>
-        <p>sin planes inflados ni features que no necesitas. el costo refleja lo que realmente usas — puedes calcularlo y proyectarlo.</p>
-      </div>
-      <div class="vcard">
-        <span class="vcard-num">03 /</span>
-        <h3>Cero dependencias</h3>
-        <p>todo lo que instalamos es software libre. si decides irte, te llevas todo. sin contratos de largo plazo, sin letra chica.</p>
-      </div>
-      <div class="vcard">
-        <span class="vcard-num">04 /</span>
-        <h3>Trato directo</h3>
-        <p>hablas con quien hace el trabajo. si algo no te conviene, te lo decimos. sin intermediarios, sin promesas que no podemos cumplir.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA ──────────────────────────────────────────────────── -->
-<section id="cta">
-  <span class="section-label">// contacto</span>
-  <h2 class="cta-title">¿por dónde<br/>empezamos?</h2>
-  <p>cuéntame qué necesita tu empresa.<br/>la primera plática no cuesta nada.</p>
-  <a href="mailto:hello@omitron.com.mx" class="cta-btn">
-    hello@omitron.com.mx →
-  </a>
-</section>
-
-<!-- FOOTER ───────────────────────────────────────────────── -->
-<footer>
-  <div class="footer-brand">
-    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
-  </div>
-  <p>© 2026 Omitron · nube privada gestionada · México</p>
-</footer>
-
 </body>
 </html>
