@@ -3,110 +3,541 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Omitron — Elige tu Modelo</title>
+  <title>Omitron — Digitalización y Tecnología para Empresas Mexicanas</title>
+  <meta name="description" content="Omitron instala y opera la infraestructura digital de tu empresa — correo, archivos, ERP, video y más. En México, en pesos, con soporte humano." />
+  <link rel="canonical" href="https://omitron.com.mx/" />
+  <meta name="theme-color" content="#0f0e0f" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omitron.com.mx/" />
+  <meta property="og:title" content="Omitron — Infraestructura digital para empresas mexicanas" />
+  <meta property="og:description" content="Instalamos y operamos todas las herramientas digitales de tu empresa. En México, en pesos, con soporte humano real." />
+  <meta property="og:image" content="https://omitron.com.mx/assets/img/LogoOmitron.Azul.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/Isotipo.Azul.png" />
+
+  <!-- Preload LCP asset -->
+  <link rel="preload" as="image" href="assets/img/Isotipo.Azul.png" />
+
   <link rel="stylesheet" href="css/main.css" />
-  <style>
-    body { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; }
-    .selector {
-      max-width: 960px;
-      width: 100%;
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Omitron",
+    "description": "Instalamos y operamos la infraestructura digital completa de empresas mexicanas. Correo, archivos, ERP, video, respaldos y más — en México, en pesos, con soporte humano.",
+    "url": "https://omitron.com.mx",
+    "email": "hola@omitron.com.mx",
+    "priceRange": "$$",
+    "currenciesAccepted": "MXN",
+    "paymentAccepted": "Transferencia, tarjeta",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "address": { "@type": "PostalAddress", "addressCountry": "MX" },
+    "areaServed": { "@type": "Country", "name": "México" },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de infraestructura digital",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Correo corporativo" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Archivos y colaboración" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sistema de gestión empresarial (ERP)" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Respaldos y monitoreo" } }
+      ]
     }
-    .selector-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-    .selector-header img { height: 52px; margin-bottom: 1.5rem; }
-    .selector-header h1 { font-family: var(--ff-title); font-size: 1.6rem; margin-bottom: 0.5rem; }
-    .selector-header p { color: var(--muted); font-size: 0.85rem; }
-    .models {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-    @media (max-width: 768px) { .models { grid-template-columns: 1fr; } }
-    .model-card {
-      background: var(--dark-3);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      text-decoration: none;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      transition: border-color 0.15s, transform 0.15s;
-    }
-    .model-card:hover { border-color: var(--blue); transform: translateY(-2px); }
-    .model-num {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--blue-hi);
-      margin-bottom: 1rem;
-    }
-    .model-card h2 { font-family: var(--ff-title); font-size: 1.1rem; margin-bottom: 0.75rem; line-height: 1.3; }
-    .model-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.5rem; flex: 1; }
-    .model-target {
-      font-size: 0.72rem;
-      color: var(--muted);
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-    .model-target strong { color: rgba(255,255,255,0.6); }
-    .model-cta {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      color: var(--blue-hi);
-    }
-  </style>
+  }
+  </script>
 </head>
 <body>
-  <div class="selector">
-    <div class="selector-header">
-      <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
-      <h1>tres modelos de negocio</h1>
-      <p>cada landing tiene un pitch distinto. elige el que mejor represente lo que quieres vender.</p>
+
+<!-- ── NAV ─────────────────────────────────────────────────── -->
+<nav aria-label="principal">
+  <a href="#" class="nav-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" />
+  </a>
+  <input type="checkbox" id="nav-open" class="nav-open-input" aria-hidden="true" />
+  <label for="nav-open" class="nav-toggle" aria-label="Abrir menú">
+    <span></span><span></span><span></span>
+  </label>
+  <div class="nav-links">
+    <a href="#what">qué hacemos</a>
+    <a href="#services">servicios</a>
+    <a href="#how">proceso</a>
+    <a href="#faq">preguntas</a>
+    <a href="#cta" class="nav-cta">hablemos →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-glow"></div>
+
+  <div class="hero-lockup">
+    <img src="assets/img/Isotipo.Azul.png" alt="" class="hero-logo" />
+    <span class="hero-descriptor">digitalización empresarial · México</span>
+  </div>
+
+  <h1 class="hero-headline">
+    enfócate en tu negocio.<br/>
+    <em>la tecnología corre por nuestra cuenta.</em>
+  </h1>
+  <p class="hero-sub">
+    Omitron instala y opera la infraestructura digital completa de tu empresa.<br/>
+    correo, archivos, ERP, video y más — en México, en pesos, con soporte humano.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#cta" class="btn btn-primary">hablemos →</a>
+    <a href="#services" class="btn btn-ghost">ver servicios</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <span>15+</span>
+      <span>herramientas incluidas</span>
     </div>
-
-    <div class="models">
-      <a href="v1.html" class="model-card">
-        <div class="model-num">modelo 01 / más alcanzable</div>
-        <h2>Espacio de Trabajo Privado</h2>
-        <p>reemplaza el correo y almacenamiento que pagan en dólares. precio por persona, desde $149 MXN/mes. el pitch más fácil de vender a cualquier pyme.</p>
-        <div class="model-target">
-          <strong>target:</strong> equipos de 3–30 personas · pymes sin IT interno<br/>
-          <strong>precio:</strong> $149–$349 MXN/persona/mes<br/>
-          <strong>ingresos potenciales:</strong> 100 usuarios = ~$20k MXN/mes
-        </div>
-        <span class="model-cta">ver landing →</span>
-      </a>
-
-      <a href="v2.html" class="model-card">
-        <div class="model-num">modelo 02 / mayor ticket</div>
-        <h2>La Nube Soberana</h2>
-        <p>plataforma completa por empresa, no por persona. ideal para directivos que valoran control y soberanía de datos. narrativa editorial, menos técnico.</p>
-        <div class="model-target">
-          <strong>target:</strong> empresas 10–60 personas · dueños/directores<br/>
-          <strong>precio:</strong> $999–$5,999 MXN/empresa/mes<br/>
-          <strong>ingresos potenciales:</strong> 20 clientes = ~$50k MXN/mes
-        </div>
-        <span class="model-cta">ver landing →</span>
-      </a>
-
-      <a href="v3.html" class="model-card">
-        <div class="model-num">modelo 03 / más completo</div>
-        <h2>Plataforma Digital Completa</h2>
-        <p>muestra cada herramienta en detalle. precio escalonado por uso real. para fundadores y directores técnicos que quieren ver exactamente qué reciben.</p>
-        <div class="model-target">
-          <strong>target:</strong> startups y agencias · founders técnicos<br/>
-          <strong>precio:</strong> $1,200–$7,999 MXN/mes<br/>
-          <strong>ingresos potenciales:</strong> 10 clientes = ~$35k MXN/mes
-        </div>
-        <span class="model-cta">ver landing →</span>
-      </a>
+    <div class="stat">
+      <span>7</span>
+      <span>días para estar operando</span>
+    </div>
+    <div class="stat">
+      <span>0</span>
+      <span>dólares en licencias</span>
+    </div>
+    <div class="stat">
+      <span>24/7</span>
+      <span>monitoreo activo</span>
     </div>
   </div>
+</section>
+
+<!-- ── MARQUEE ──────────────────────────────────────────────── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>archivos compartidos <b>·</b></span>
+    <span>correo corporativo <b>·</b></span>
+    <span>sistema de ventas <b>·</b></span>
+    <span>video y transmisiones <b>·</b></span>
+    <span>capacitación en línea <b>·</b></span>
+    <span>acceso unificado <b>·</b></span>
+    <span>documentación interna <b>·</b></span>
+    <span>respaldos automáticos <b>·</b></span>
+    <span>monitoreo continuo <b>·</b></span>
+    <span>gestión de contraseñas <b>·</b></span>
+    <span>crm y seguimiento <b>·</b></span>
+    <span>contabilidad e inventario <b>·</b></span>
+    <span>datos en méxico <b>·</b></span>
+    <span>en pesos, sin dólares <b>·</b></span>
+    <span>archivos compartidos <b>·</b></span>
+    <span>correo corporativo <b>·</b></span>
+    <span>sistema de ventas <b>·</b></span>
+    <span>video y transmisiones <b>·</b></span>
+    <span>capacitación en línea <b>·</b></span>
+    <span>acceso unificado <b>·</b></span>
+    <span>documentación interna <b>·</b></span>
+    <span>respaldos automáticos <b>·</b></span>
+    <span>monitoreo continuo <b>·</b></span>
+    <span>gestión de contraseñas <b>·</b></span>
+    <span>crm y seguimiento <b>·</b></span>
+    <span>contabilidad e inventario <b>·</b></span>
+    <span>datos en méxico <b>·</b></span>
+    <span>en pesos, sin dólares <b>·</b></span>
+  </div>
+</div>
+
+<!-- ── QUÉ ES ────────────────────────────────────────────────── -->
+<section id="what" style="padding: 8rem 0; background: var(--cream); color: var(--dark);">
+  <div class="container">
+    <div class="problem-grid">
+
+      <div>
+        <span class="section-label">qué hacemos</span>
+        <h2 class="section-title" style="color:var(--dark);">
+          tu empresa ya paga<br/>demasiado por tecnología<br/>que no controla.
+        </h2>
+        <p class="section-sub" style="color:var(--muted-d); margin-bottom: 2rem;">
+          El correo, los archivos, el sistema de ventas — probablemente son servicios
+          rentados a empresas de Estados Unidos. Si suben el precio, lo pagas.
+          Si cambian las condiciones, las aceptas. Y tus datos están en servidores
+          que no son tuyos ni están en México.
+        </p>
+        <p class="section-sub" style="color:var(--muted-d);">
+          Omitron instala y opera esas mismas herramientas — y muchas más —
+          en infraestructura propia, con tus datos en México,
+          gestionado por nuestro equipo y con soporte en español.
+          Tú te enfocas en tu negocio.
+        </p>
+
+        <div class="for-who">
+          <span class="for-who-label">es para ti si...</span>
+          <ul>
+            <li>Tu empresa tiene entre 3 y 100 personas</li>
+            <li>Quieres dejar de depender de servicios de terceros que no controlas</li>
+            <li>No tienes un área de sistemas interna</li>
+            <li>Quieres que tus datos estén en México, bajo tu control</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="problem-visual">
+        <div class="terminal-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="terminal-title">omitron · estado de plataforma</span>
+        </div>
+        <span class="t-line"><span class="p">omitron</span> <span class="dim">~</span> <span class="cmd">estado general</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">archivos y colaboración &nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">correo corporativo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">sistema de gestión &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">video y transmisiones &nbsp;&nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">capacitación en línea &nbsp;&nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">acceso y seguridad &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">respaldos automáticos &nbsp;&nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="ok">✓</span> <span class="cmd">monitoreo continuo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="ok">activo</span></span>
+        <span class="t-line"><span class="dim">────────────────────────────────</span></span>
+        <span class="t-line"><span class="p">15</span> <span class="cmd">herramientas · </span><span class="ok">todas operando</span> <span class="t-cursor"></span></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ──────────────────────────────────────────────── -->
+<section id="services">
+  <div class="container">
+    <span class="section-label">servicios</span>
+    <h2 class="section-title">
+      una plataforma.<br/>todo incluido.
+    </h2>
+
+    <div class="bento">
+
+      <div class="bcard span2">
+        <span class="bcard-num">01</span>
+        <h3>archivos y colaboración</h3>
+        <p>
+          Un espacio digital compartido para toda tu empresa. Sube, organiza y comparte
+          archivos desde cualquier dispositivo. Edita documentos, hojas de cálculo
+          y presentaciones en línea, sin instalar nada en la computadora.
+          Tu propio Google Drive, pero en México y sin cuotas mensuales en dólares.
+        </p>
+        <div class="bcard-terminal">
+          <span class="t-line"><span class="ok">→</span> <span class="cmd">carpetas compartidas por área o proyecto</span></span>
+          <span class="t-line"><span class="ok">→</span> <span class="cmd">edición colaborativa en tiempo real</span></span>
+          <span class="t-line"><span class="ok">→</span> <span class="cmd">sincronización en celular, Mac y Windows</span></span>
+          <span class="t-line"><span class="ok">→</span> <span class="cmd">comparte archivos con clientes, con fecha de vencimiento</span></span>
+        </div>
+        <span class="bcard-tag">Nextcloud</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">02</span>
+        <h3>correo corporativo</h3>
+        <p>
+          Correo @tudominio.com para todo tu equipo.
+          Acceso desde el navegador o desde el celular,
+          con filtro de spam y listas de distribución.
+          Sin depender de Google ni de Microsoft.
+        </p>
+        <span class="bcard-tag">Mailu</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">03</span>
+        <h3>sistema de gestión empresarial</h3>
+        <p>
+          Contabilidad, inventario, compras, ventas y seguimiento de clientes
+          en un solo sistema. Tu negocio organizado y visible
+          desde cualquier lugar.
+        </p>
+        <span class="bcard-tag">ERPNext · Odoo</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">04</span>
+        <h3>video y transmisiones</h3>
+        <p>
+          Biblioteca privada de videos para tu equipo o tus clientes.
+          También puedes publicar y transmitir contenido en video
+          con tu propia marca, sin depender de YouTube.
+        </p>
+        <span class="bcard-tag">Jellyfin · PeerTube</span>
+      </div>
+
+      <div class="bcard span2">
+        <span class="bcard-num">05</span>
+        <h3>capacitación en línea</h3>
+        <p>
+          Plataforma completa para capacitar a tu equipo o a tus clientes.
+          Crea cursos con lecciones, evaluaciones y materiales descargables.
+          Al terminar, emite certificados. Lleva el control de quién aprendió qué
+          y cuándo. Accesible desde cualquier dispositivo.
+        </p>
+        <span class="bcard-tag">Moodle</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">06</span>
+        <h3>acceso único y seguridad</h3>
+        <p>
+          Tus colaboradores entran a todas las herramientas
+          con una sola cuenta. Tú controlas quién tiene acceso
+          a qué, y puedes revocar permisos en segundos.
+        </p>
+        <span class="bcard-tag">Authentik · Vaultwarden</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">07</span>
+        <h3>base de conocimiento</h3>
+        <p>
+          Documenta los procesos, manuales y decisiones de tu empresa.
+          Que el conocimiento no viva solo en la cabeza de las personas,
+          sino en un lugar organizado y accesible para todos.
+        </p>
+        <span class="bcard-tag">Outline</span>
+      </div>
+
+      <div class="bcard">
+        <span class="bcard-num">08</span>
+        <h3>respaldos y monitoreo</h3>
+        <p>
+          Copias de seguridad diarias de toda la plataforma.
+          Si algo falla, lo detectamos antes de que te afecte.
+          Tus datos siempre protegidos, sin que tengas que
+          pensar en ello.
+        </p>
+        <span class="bcard-tag">Velero · Prometheus · Grafana</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW ───────────────────────────────────────────────────── -->
+<section id="how">
+  <div class="container">
+    <span class="section-label">proceso</span>
+    <h2 class="section-title" style="color:var(--dark);">
+      de cero a operando<br/>en días, no meses.
+    </h2>
+
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>hablamos</h3>
+        <p>
+          Conocemos tu empresa, qué herramientas usa hoy
+          y qué necesita. Definimos juntos lo que tiene sentido
+          para ti.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>configuramos</h3>
+        <p>
+          Instalamos y configuramos tu plataforma completa.
+          Si tienes datos en otro sistema, los migramos
+          sin perder nada.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>operamos</h3>
+        <p>
+          Nos encargamos del mantenimiento, las actualizaciones
+          y el soporte. Tú usas la plataforma,
+          nosotros la mantenemos funcionando.
+        </p>
+      </div>
+      <div class="step">
+        <span class="step-num">04</span>
+        <h3>crecemos contigo</h3>
+        <p>
+          Cuando tu empresa crece, tu plataforma crece.
+          Agregamos herramientas y capacidad
+          conforme las necesitas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUES ────────────────────────────────────────────────── -->
+<section id="values">
+  <div class="container">
+    <span class="section-label">por qué Omitron</span>
+    <h2 class="section-title">no solo instalamos.<br/>operamos contigo.</h2>
+
+    <div class="values-grid">
+      <div class="vcard">
+        <span class="vcard-num">// 01</span>
+        <h3>tus datos en México</h3>
+        <p>
+          Toda la información de tu empresa vive en servidores
+          dentro de México. No hay datos viajando a
+          Estados Unidos ni a ningún otro país.
+        </p>
+      </div>
+      <div class="vcard">
+        <span class="vcard-num">// 02</span>
+        <h3>sin ataduras de marca</h3>
+        <p>
+          Usamos software sin licencias propietarias. Eso significa
+          que no dependes de Google, Microsoft ni ninguna otra empresa
+          para seguir operando. El sistema es tuyo.
+        </p>
+      </div>
+      <div class="vcard">
+        <span class="vcard-num">// 03</span>
+        <h3>a la medida de tu empresa</h3>
+        <p>
+          No vendemos paquetes cerrados. Tu plataforma se arma con
+          las herramientas que tu empresa realmente usa.
+          Nada que sobre, nada que falte.
+        </p>
+      </div>
+      <div class="vcard">
+        <span class="vcard-num">// 04</span>
+        <h3>soporte en español</h3>
+        <p>
+          Equipo mexicano, respuestas rápidas, en español,
+          en horario laboral de México.
+          Sin formularios en inglés ni respuestas automáticas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ───────────────────────────────────────────────────── -->
+<section id="faq">
+  <div class="container">
+    <span class="section-label">preguntas frecuentes</span>
+    <h2 class="section-title" style="color:var(--dark);">lo que siempre<br/>nos preguntan.</h2>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>¿Cuánto cuesta el servicio?</summary>
+        <p>
+          El costo depende de las herramientas que necesitas y el número de usuarios.
+          Trabajamos con cuotas fijas mensuales en pesos — sin cargos adicionales,
+          sin sorpresas al final del mes. Escríbenos y en menos de 24 horas
+          te damos un número concreto para tu empresa.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Qué pasa si algo falla?</summary>
+        <p>
+          Monitoreamos la plataforma de forma continua, las 24 horas.
+          Si algo falla, generalmente lo detectamos antes de que te afecte.
+          Si necesitas apoyo, respondemos en horario laboral en México,
+          por correo o WhatsApp, en español — sin formularios en inglés ni bots.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Mis datos están seguros?</summary>
+        <p>
+          Toda tu información vive en servidores físicos en México,
+          sin acceso de terceros. No hay datos viajando a Estados Unidos
+          ni a ningún otro país. Y si algún día decides migrar,
+          tus datos son tuyos — te los entregamos completos, sin restricciones.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Cuánto tiempo tarda implementar todo?</summary>
+        <p>
+          La configuración base tarda entre 3 y 7 días hábiles.
+          Si tienes datos en otro sistema — Google Drive, Microsoft 365,
+          correo anterior — los migramos sin interrumpir tu operación.
+          Tu equipo empieza a trabajar en la plataforma nueva desde el primer día.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Las herramientas son fáciles de usar?</summary>
+        <p>
+          Sí. Son plataformas usadas por millones de personas en el mundo —
+          intuitivas, en español, accesibles desde cualquier dispositivo.
+          La mayoría de los equipos las adoptan sin fricciones en los primeros días.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>¿Hay contratos a largo plazo?</summary>
+        <p>
+          No. Trabajamos con contratos mensuales.
+          Si en algún momento decides que Omitron no es para ti,
+          avisas con 30 días de anticipación y cerramos sin complicaciones.
+          Sin letras chicas, sin cargos de cancelación.
+        </p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────── -->
+<section id="cta">
+  <span class="section-label">hablemos</span>
+  <h2 class="cta-title">
+    cuéntanos<br/>tu empresa.
+  </h2>
+  <p>
+    Descríbenos cómo funciona tu negocio y en menos de 24 horas
+    te decimos qué herramientas necesitas y cuánto cuesta.
+    Sin presión, sin compromisos.
+  </p>
+  <a href="mailto:hola@omitron.com.mx" class="cta-btn">
+    hola@omitron.com.mx →
+  </a>
+  <div class="cta-trust">
+    <span>sin contratos a largo plazo</span>
+    <span class="sep">·</span>
+    <span>respondemos en menos de 24 h</span>
+    <span class="sep">·</span>
+    <span>sin letra chica</span>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-brand">
+    <img src="assets/img/LogoOmitron.Blanco.png" alt="Omitron" loading="lazy" />
+  </div>
+  <p>© 2026 Omitron · digitalización empresarial · México</p>
+</footer>
+
+<!-- ── WHATSAPP FAB ─────────────────────────────────────────── -->
+<a href="https://wa.me/523324182097?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Omitron"
+   class="whatsapp-fab"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span class="whatsapp-label">hablemos por WhatsApp</span>
+</a>
+
+<script>
+(function(){
+  var toggle = document.getElementById('nav-open');
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click', function(){ toggle.checked = false; });
+  });
+  document.addEventListener('click', function(e){
+    if(toggle.checked && !e.target.closest('nav')){ toggle.checked = false; }
+  });
+})();
+</script>
+
 </body>
 </html>
