@@ -535,92 +535,46 @@
     Sin presión, sin compromisos.
   </p>
 
-  <div class="console" data-reveal>
-    <div class="console-bar">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="console-title">omitron ~ <b>nueva-solicitud</b></span>
-      <span class="console-live">en línea</span>
+  <form id="contact-form" class="lead-card" data-reveal novalidate>
+    <div class="lf-field">
+      <label for="lf-nombre">nombre <span class="req">*</span></label>
+      <input id="lf-nombre" type="text" name="nombre" autocomplete="name" required maxlength="120" placeholder="¿cómo te llamas?" />
     </div>
-    <div class="console-body">
-
-      <aside class="console-log">
-        <h3>cuéntanos y<br/>nosotros nos<br/>encargamos.</h3>
-        <span class="t-line"><span class="ok">✓</span> <span class="cmd">respondemos en menos de 24 h</span></span>
-        <span class="t-line"><span class="ok">✓</span> <span class="cmd">cotización clara, en pesos</span></span>
-        <span class="t-line"><span class="ok">✓</span> <span class="cmd">sin contratos forzosos</span></span>
-        <span class="t-line"><span class="ok">✓</span> <span class="cmd">tus datos en México</span></span>
-        <span class="t-line"><span class="ok">✓</span> <span class="cmd">sin compromiso ni letra chica</span></span>
-        <div class="console-foot"><span class="p">omitron</span> <span class="dim">~</span> esperando tus datos <span class="t-cursor"></span></div>
-      </aside>
-
-      <form id="contact-form" class="console-form" novalidate>
-        <div class="cf-row">
-          <div class="cf-field">
-            <span class="cf-idx">01</span>
-            <label>
-              <span class="cf-key">nombre <span class="cf-req">*</span></span>
-              <input type="text" name="nombre" autocomplete="name" required maxlength="120" placeholder="tu nombre" />
-            </label>
-          </div>
-          <div class="cf-field">
-            <span class="cf-idx">02</span>
-            <label>
-              <span class="cf-key">empresa</span>
-              <input type="text" name="empresa" autocomplete="organization" maxlength="120" placeholder="opcional" />
-            </label>
-          </div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-field">
-            <span class="cf-idx">03</span>
-            <label>
-              <span class="cf-key">tamaño del equipo</span>
-              <select name="tamano">
-                <option value="">selecciona…</option>
-                <option>1–2 personas</option>
-                <option>3–10 personas</option>
-                <option>11–30 personas</option>
-                <option>31–100 personas</option>
-                <option>más de 100</option>
-              </select>
-            </label>
-          </div>
-          <div class="cf-field">
-            <span class="cf-idx">04</span>
-            <label>
-              <span class="cf-key">qué usan hoy</span>
-              <input type="text" name="herramientas" placeholder="Google, Microsoft 365…" maxlength="200" />
-            </label>
-          </div>
-        </div>
-        <div class="cf-field">
-          <span class="cf-idx">05</span>
-          <label>
-            <span class="cf-key">correo o WhatsApp <span class="cf-req">*</span></span>
-            <input type="text" name="contacto" autocomplete="email" required maxlength="160" placeholder="para responderte" />
-          </label>
-        </div>
-        <div class="cf-field">
-          <span class="cf-idx">06</span>
-          <label>
-            <span class="cf-key">cuéntanos brevemente</span>
-            <textarea name="mensaje" rows="2" maxlength="2000" placeholder="qué necesitas o qué te gustaría resolver"></textarea>
-          </label>
-        </div>
-
-        <!-- honeypot anti-spam: oculto para humanos, tentador para bots -->
-        <div class="cf-hp" aria-hidden="true">
-          <label>No llenar este campo
-            <input type="text" name="website" tabindex="-1" autocomplete="off" />
-          </label>
-        </div>
-
-        <button type="submit" class="cta-btn" id="cf-submit">› enviar solicitud</button>
-        <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
-      </form>
-
+    <div class="lf-field">
+      <label for="lf-contacto">correo o WhatsApp <span class="req">*</span></label>
+      <input id="lf-contacto" type="text" name="contacto" autocomplete="email" required maxlength="160" placeholder="¿a dónde te respondemos?" />
     </div>
-  </div>
+    <div class="lf-field">
+      <label for="lf-empresa">empresa <span class="opt">(opcional)</span></label>
+      <input id="lf-empresa" type="text" name="empresa" autocomplete="organization" maxlength="120" placeholder="nombre de tu empresa" />
+    </div>
+    <div class="lf-field">
+      <label for="lf-tamano">tamaño del equipo <span class="opt">(opcional)</span></label>
+      <select id="lf-tamano" name="tamano">
+        <option value="">selecciona…</option>
+        <option>1–2 personas</option>
+        <option>3–10 personas</option>
+        <option>11–30 personas</option>
+        <option>31–100 personas</option>
+        <option>más de 100</option>
+      </select>
+    </div>
+    <div class="lf-field">
+      <label for="lf-mensaje">¿en qué te ayudamos? <span class="opt">(opcional)</span></label>
+      <textarea id="lf-mensaje" name="mensaje" rows="3" maxlength="2000" placeholder="cuéntanos brevemente qué necesitas"></textarea>
+    </div>
+
+    <!-- honeypot anti-spam: oculto para humanos, tentador para bots -->
+    <div class="lf-hp" aria-hidden="true">
+      <label>No llenar este campo
+        <input type="text" name="website" tabindex="-1" autocomplete="off" />
+      </label>
+    </div>
+
+    <button type="submit" class="lf-submit" id="cf-submit">solicitar propuesta →</button>
+    <p class="lf-status" id="cf-status" role="status" aria-live="polite"></p>
+    <p class="lf-trust">respuesta en <b>menos de 24 h</b> · sin costo · sin compromiso</p>
+  </form>
 
   <p class="cf-alt">
     o escríbenos directo a
@@ -628,14 +582,6 @@
     ·
     <a href="https://wa.me/523324182097?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Omitron" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   </p>
-
-  <div class="cta-trust">
-    <span>sin contratos a largo plazo</span>
-    <span class="sep">·</span>
-    <span>respondemos en menos de 24 h</span>
-    <span class="sep">·</span>
-    <span>sin letra chica</span>
-  </div>
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────── -->
@@ -693,28 +639,6 @@
   if(!form) return;
   var btn = document.getElementById('cf-submit');
   var status = document.getElementById('cf-status');
-  var foot = document.querySelector('.console-foot');
-
-  // marca campos llenos (índice a verde) y actualiza el pie del log
-  function reqReady(){
-    var n = form.nombre && form.nombre.value.trim();
-    var c = form.contacto && form.contacto.value.trim();
-    return n && c;
-  }
-  form.querySelectorAll('.cf-field input, .cf-field select, .cf-field textarea').forEach(function(el){
-    if(el.name === 'website') return;
-    var field = el.closest('.cf-field');
-    var sync = function(){
-      field.classList.toggle('is-filled', !!el.value.trim());
-      if(foot){
-        foot.innerHTML = reqReady()
-          ? '<span class="p">omitron</span> <span class="dim">~</span> <span class="ok">listo para enviar</span> <span class="t-cursor"></span>'
-          : '<span class="p">omitron</span> <span class="dim">~</span> esperando tus datos <span class="t-cursor"></span>';
-      }
-    };
-    el.addEventListener('input', sync);
-    el.addEventListener('change', sync);
-  });
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -744,11 +668,10 @@
       });
     }).then(function(r){
       if(r.ok && r.body.ok){
-        form.innerHTML = '<div class="cf-done">' +
-          '<span class="t-line"><span class="p">omitron</span> <span class="dim">~</span> <span class="cmd">procesando solicitud…</span></span>' +
-          '<span class="t-line"><span class="ok">✓</span> <span class="big">¡solicitud recibida!</span></span>' +
-          '<span class="t-line"><span class="cmd">te contactamos en menos de 24 h.</span></span>' +
-          '<span class="t-line"><span class="dim">// gracias por escribirnos</span> <span class="t-cursor"></span></span>' +
+        form.innerHTML = '<div class="lf-done">' +
+          '<span class="check" aria-hidden="true">✓</span>' +
+          '<h3>¡listo, gracias!</h3>' +
+          '<p>Recibimos tu mensaje. Te contactamos en menos de 24 horas.</p>' +
         '</div>';
       } else {
         throw new Error((r.body && r.body.error) || 'error');
