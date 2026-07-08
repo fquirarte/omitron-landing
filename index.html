@@ -534,54 +534,17 @@
     te decimos qué herramientas necesitas y cuánto cuesta.
     Sin presión, sin compromisos.
   </p>
-
-  <form id="contact-form" class="lead-card" data-reveal novalidate>
-    <div class="lf-field">
-      <label for="lf-nombre">nombre <span class="req">*</span></label>
-      <input id="lf-nombre" type="text" name="nombre" autocomplete="name" required maxlength="120" placeholder="¿cómo te llamas?" />
-    </div>
-    <div class="lf-field">
-      <label for="lf-contacto">correo o WhatsApp <span class="req">*</span></label>
-      <input id="lf-contacto" type="text" name="contacto" autocomplete="email" required maxlength="160" placeholder="¿a dónde te respondemos?" />
-    </div>
-    <div class="lf-field">
-      <label for="lf-empresa">empresa <span class="opt">(opcional)</span></label>
-      <input id="lf-empresa" type="text" name="empresa" autocomplete="organization" maxlength="120" placeholder="nombre de tu empresa" />
-    </div>
-    <div class="lf-field">
-      <label for="lf-tamano">tamaño del equipo <span class="opt">(opcional)</span></label>
-      <select id="lf-tamano" name="tamano">
-        <option value="">selecciona…</option>
-        <option>1–2 personas</option>
-        <option>3–10 personas</option>
-        <option>11–30 personas</option>
-        <option>31–100 personas</option>
-        <option>más de 100</option>
-      </select>
-    </div>
-    <div class="lf-field">
-      <label for="lf-mensaje">¿en qué te ayudamos? <span class="opt">(opcional)</span></label>
-      <textarea id="lf-mensaje" name="mensaje" rows="3" maxlength="2000" placeholder="cuéntanos brevemente qué necesitas"></textarea>
-    </div>
-
-    <!-- honeypot anti-spam: oculto para humanos, tentador para bots -->
-    <div class="lf-hp" aria-hidden="true">
-      <label>No llenar este campo
-        <input type="text" name="website" tabindex="-1" autocomplete="off" />
-      </label>
-    </div>
-
-    <button type="submit" class="lf-submit" id="cf-submit">solicitar propuesta →</button>
-    <p class="lf-status" id="cf-status" role="status" aria-live="polite"></p>
-    <p class="lf-trust">respuesta en <b>menos de 24 h</b> · sin costo · sin compromiso</p>
-  </form>
-
-  <p class="cf-alt">
-    o escríbenos directo a
-    <a href="mailto:hola@omitron.com.mx">hola@omitron.com.mx</a>
-    ·
-    <a href="https://wa.me/523324182097?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Omitron" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-  </p>
+  <a href="https://wa.me/523324182097?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Omitron"
+     class="cta-btn" target="_blank" rel="noopener noreferrer">
+    escríbenos por WhatsApp →
+  </a>
+  <div class="cta-trust">
+    <span>sin contratos a largo plazo</span>
+    <span class="sep">·</span>
+    <span>respondemos en menos de 24 h</span>
+    <span class="sep">·</span>
+    <span>sin letra chica</span>
+  </div>
 </section>
 
 <!-- ── FOOTER ────────────────────────────────────────────────── -->
@@ -631,58 +594,6 @@
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   els.forEach(function(el){ io.observe(el); });
-})();
-
-/* ── Formulario de contacto ─────────────────────────────── */
-(function(){
-  var form = document.getElementById('contact-form');
-  if(!form) return;
-  var btn = document.getElementById('cf-submit');
-  var status = document.getElementById('cf-status');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    status.className = 'cf-status';
-    status.textContent = '';
-
-    var data = {};
-    new FormData(form).forEach(function(v, k){ data[k] = v; });
-
-    if(!data.nombre || !data.contacto){
-      status.textContent = 'Por favor llena tu nombre y un medio de contacto.';
-      status.classList.add('is-error');
-      return;
-    }
-
-    btn.disabled = true;
-    var original = btn.textContent;
-    btn.textContent = 'enviando…';
-
-    fetch('/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    }).then(function(res){
-      return res.json().catch(function(){ return {}; }).then(function(body){
-        return { ok: res.ok, body: body };
-      });
-    }).then(function(r){
-      if(r.ok && r.body.ok){
-        form.innerHTML = '<div class="lf-done">' +
-          '<span class="check" aria-hidden="true">✓</span>' +
-          '<h3>¡listo, gracias!</h3>' +
-          '<p>Recibimos tu mensaje. Te contactamos en menos de 24 horas.</p>' +
-        '</div>';
-      } else {
-        throw new Error((r.body && r.body.error) || 'error');
-      }
-    }).catch(function(){
-      btn.disabled = false;
-      btn.textContent = original;
-      status.textContent = 'No se pudo enviar. Escríbenos por WhatsApp o a hola@omitron.com.mx.';
-      status.classList.add('is-error');
-    });
-  });
 })();
 </script>
 
